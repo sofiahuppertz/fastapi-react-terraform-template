@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,600,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Blue palette */
+  --blue-50: #E4F3FF;
+  --blue-100: #90D5FF;
+  --blue-200: #00B2EB;
+  --blue-300: #008AB7;
+  --blue-400: #006486;
+  --blue-500: #004158;
+  --blue-600: #00202E;
+
+  /* Sky palette */
+  --sky-50: #BBDCFF;
+  --sky-100: #57B9FF;
+  --sky-200: #0093D7;
+  --sky-300: #006DA1;
+  --sky-400: #004A6E;
+  --sky-500: #00293F;
+  --sky-600: #001220;
+
+  /* Teal palette */
+  --teal-50: #E9F2F9;
+  --teal-100: #B6D5EC;
+  --teal-200: #77B1D4;
+  --teal-300: #5C8AA6;
+  --teal-400: #42657A;
+  --teal-500: #2A4251;
+  --teal-600: #14222B;
+
+  /* Dusty palette */
+  --dusty-50: #DAE8F4;
+  --dusty-100: #97C4E4;
+  --dusty-200: #6C9EBE;
+  --dusty-300: #517891;
+  --dusty-400: #375466;
+  --dusty-500: #20333F;
+  --dusty-600: #0A141A;
+
+  /* Grey palette */
+  --grey-50: #F0F1F1;
+  --grey-100: #CACDCF;
+  --grey-200: #A2A6A9;
+  --grey-300: #7E8183;
+  --grey-400: #5B5D5F;
+  --grey-500: #3A3C3D;
+  --grey-600: #1C1D1E;
+}
+
+@layer base {
+  * {
+    @apply border-grey-100;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-grey-600 font-space;
+  }
+
+  code, pre {
+    @apply font-mono;
+  }
+}
+
+@layer utilities {
+  .font-satoshi {
+    font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  .font-space {
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  .font-editorial {
+    font-family: 'Spectral', Georgia, serif;
+  }
+
+  .font-mono {
+    font-family: 'Roboto Mono', monospace;
+  }
+
+  .text-gradient-blue {
+    background: linear-gradient(to right, var(--blue-200), var(--blue-400));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .text-gradient-teal {
+    background: linear-gradient(to right, var(--teal-100), var(--teal-300));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .card-base {
+    @apply bg-white rounded-2xl shadow-sm;
+    border: 1px solid var(--grey-100);
+  }
+
+  .btn-primary {
+    @apply font-medium px-6 py-3 rounded-xl transition-all duration-200 shadow-sm;
+    background-color: var(--teal-200);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--teal-300);
+  }
+
+  .btn-secondary {
+    @apply bg-white font-medium px-6 py-3 rounded-xl transition-all duration-200 shadow-sm;
+    color: var(--grey-500);
+    border: 1px solid var(--grey-100);
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--grey-50);
+  }
+
+  .btn-danger {
+    @apply font-medium px-6 py-3 rounded-xl transition-all duration-200 shadow-sm;
+    background-color: #ef4444;
+    color: white;
+  }
+
+  .btn-danger:hover {
+    background-color: #dc2626;
+  }
+
+  .input-base {
+    @apply w-full px-4 py-3 rounded-xl focus:border-transparent outline-none transition bg-white;
+    border: 1px solid var(--grey-100);
+    color: var(--grey-500);
+  }
+
+  .input-base:focus {
+    box-shadow: 0 0 0 2px var(--blue-200);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--grey-50);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--grey-200);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--grey-300);
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Fast spinner animation */
+.fa-spin-fast {
+  animation: fa-spin 1s infinite linear;
+}
+
+@keyframes fa-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
